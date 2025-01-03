@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages Initiaux</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Configurer les Messages Initiaux</h1>
+
+  <form id="defaultMessagesForm">
+    <label for="morningMessage">Message de 07h à 12h :</label>
+    <input type="text" id="morningMessage" name="morningMessage" value="Soyez les bienvenus à IROKO Fab Lab">
+
+    <label for="afternoonMessage">Message de 12h à 19h :</label>
+    <input type="text" id="afternoonMessage" name="afternoonMessage" value="Bon après-midi !">
+
+    <label for="nightMessage">Message de 19h à 07h :</label>
+    <input type="text" id="nightMessage" name="nightMessage" value="Bonne soirée !">
+
+    <button type="submit">Mettre à jour les messages</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
