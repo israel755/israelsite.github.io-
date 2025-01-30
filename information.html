@@ -60,7 +60,7 @@
 
       // Envoyer les données au serveur backend
       try {
-        const response = await fetch("http://localhost:3000/api/update", { // URL mise à jour pour la route API backend
+        const response = await fetch("https://backend-github-87vf.onrender.com/api/update", { // URL mise à jour pour la route API backend
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -88,7 +88,7 @@
     document.getElementById("deleteButton").addEventListener("click", async () => {
       if (confirm("Êtes-vous sûr de vouloir supprimer l'information ?")) {
         try {
-          const response = await fetch("http://localhost:3000/api/share", { // Assurez-vous que l'URL est correcte
+          const response = await fetch("https://backend-github-87vf.onrender.com/api/share", { // Assurez-vous que l'URL est correcte
             method: "DELETE",
           });
 
