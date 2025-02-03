@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messages Initiaux</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #111010;
+      background-image: url('E:/Tableau de bord/tessellate/images/pic02.jpg'); /* Remplace par le chemin de ton image */
+      background-size: cover; /* Permet de couvrir toute la zone de l'écran */
+      background-position: center; /* Centre l'image de fond */
+      background-attachment: fixed; /* L'image reste fixe lorsque l'on fait défiler la page */
+    }
+
+    header {
+      
+      color: rgb(20, 19, 14);
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+   
+
+    form label {
+      font-size: 16px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #45a049;
+    }
+
+    #status {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .status-success {
+      color: green;
+    }
+
+    .status-error {
+      color: red;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      color: #4CAF50;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Configurer les Messages Initiaux</h1>
+  <header>
+    <h1>Configurer les Messages Initiaux</h1>
+  </header>
 
-  <form id="defaultMessagesForm">
-    <label for="morningMessage">Message de 07h à 12h :</label>
-    <input type="text" id="morningMessage" name="morningMessage" value="Soyez les bienvenus à IROKO Fab Lab">
+  <div class="container">
+    <form id="defaultMessagesForm">
+      <label for="morningMessage">Message de 07h à 12h :</label>
+      <input type="text" id="morningMessage" name="morningMessage" value="Soyez les bienvenus à IROKO Fab Lab">
 
-    <label for="afternoonMessage">Message de 12h à 19h :</label>
-    <input type="text" id="afternoonMessage" name="afternoonMessage" value="Bon après-midi !">
+      <label for="afternoonMessage">Message de 12h à 19h :</label>
+      <input type="text" id="afternoonMessage" name="afternoonMessage" value="Bon après-midi !">
 
-    <label for="nightMessage">Message de 19h à 07h :</label>
-    <input type="text" id="nightMessage" name="nightMessage" value="Bonne soirée !">
+      <label for="nightMessage">Message de 19h à 07h :</label>
+      <input type="text" id="nightMessage" name="nightMessage" value="Bonne soirée !">
 
-    <button type="submit">Mettre à jour les messages</button>
-  </form>
+      <button type="submit">Mettre à jour les messages</button>
+    </form>
 
-  <p id="status"></p>
+    <p id="status"></p>
+    
+    <footer>
+      <a href="index.html">Retour à la page d'accueil</a>
+    </footer>
+  </div>
 
   <script>
     document.getElementById("defaultMessagesForm").addEventListener("submit", async (event) => {
