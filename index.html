@@ -41,35 +41,36 @@
     <header>
         <div class="container">
             <h2>Fonctionnalités de l'Enseigne Lumineuse</h2>
-            <p>Découvrez les trois fonctionnalités principales de notre enseigne lumineuse : la mise à jour automatique des messages en fonction de l'heure et le partage des informations à distance selon un temps défini.</p>
-            <h2 id="esp32-status" style="color: red; text-align: center;">ESP32 Inactif ❌</h2>
+            <p>Découvrez les deux fonctionnalités principales de notre enseigne lumineuse : la mise à jour automatique des messages en fonction de l'heure et le partage des informations à distance selon un temps défini.</p>
+            <h2 id="esp32-status" style="color: red;">ESP32 Inactif ❌</h2>
         </div>
     </header>
     <div class="content dark style1 featured">
         <div class="container">
-            
-            <div class="row" style="display: flex; justify-content: center;">
+            <div class="row">
                 <!-- Fonctionnalité 1 : Mise à jour des messages -->
-                <div class="4u" style="text-align: center;">
+                <div class="6u">
                     <section>
                         <span class="feature-icon"><span class="fa fa-clock-o"></span></span>
                         <header>
                             <h3>Mise à jour des Messages</h3>
                         </header>
                         <p>Les messages affichés sur l'enseigne lumineuse se mettent automatiquement à jour en fonction de l'heure. Par exemple, affichez des informations spécifiques pour le matin, l'après-midi, ou le soir sans intervention manuelle.</p>
+                        <!-- Lien vers la page de la fonctionnalité -->
                         <footer>
                             <a href="messages.html" class="button">Voir la fonctionnalité</a>
                         </footer>
                     </section>
                 </div>
                 <!-- Fonctionnalité 2 : Partage des informations -->
-                <div class="4u" style="text-align: center;">
+                <div class="6u">
                     <section>
                         <span class="feature-icon"><span class="fa fa-share-alt"></span></span>
                         <header>
                             <h3>Partage d'Informations</h3>
                         </header>
                         <p>Partagez les informations de l'enseigne lumineuse à distance, avec la possibilité de définir un temps de partage. Vous pouvez ainsi contrôler quand et où les informations sont visibles et faire ces partages à distance, selon vos besoins.</p>
+                        <!-- Lien vers la page de la fonctionnalité -->
                         <footer>
                             <a href="information.html" class="button">Voir la fonctionnalité</a>
                         </footer>
@@ -81,33 +82,35 @@
 </section>
 
 <script>
-   // Fonction pour récupérer le statut de l'ESP32 depuis le backend
-function fetchEsp32Status() {
-  fetch("https://backend-github-87vf.onrender.com/api/settings")
-    .then(response => response.json())  // Convertir la réponse en JSON
-    .then(data => {
-      // Sélectionner l'élément HTML où afficher le statut
-      const statusElement = document.getElementById("esp32-status");
+    // Fonction pour récupérer le statut de l'ESP32 depuis le backend
+ function fetchEsp32Status() {
+   fetch("https://backend-github-87vf.onrender.com/api/settings")
+     .then(response => response.json())  // Convertir la réponse en JSON
+     .then(data => {
+       // Sélectionner l'élément HTML où afficher le statut
+       const statusElement = document.getElementById("esp32-status");
+ 
+       // Mettre à jour le texte en fonction du statut reçu
+       if (data.etatESP32 === "Actif") {
+         statusElement.textContent = "Votre Enseigne est allumée ✅";
+         statusElement.style.color = "green"; // Couleur verte si actif
+       } else {
+         statusElement.textContent = "Votre Enseigne est éteinte ❌";
+         statusElement.style.color = "red"; // Couleur rouge si inactif
+       }
+     })
+     .catch(error => console.error("Erreur lors de la récupération du statut :", error));
+ }
+ 
+ // Rafraîchir le statut toutes les 5 secondes
+ setInterval(fetchEsp32Status, 5000);
+ 
+ // Lancer la récupération au chargement de la page
+ document.addEventListener("DOMContentLoaded", fetchEsp32Status);
+ </script>
+ 
+         
+     </body>
+ </html>
 
-      // Mettre à jour le texte en fonction du statut reçu
-      if (data.etatESP32 === "Actif") {
-        statusElement.textContent = "Votre Enseigne est allumée ✅";
-        statusElement.style.color = "green"; // Couleur verte si actif
-      } else {
-        statusElement.textContent = "Votre Enseigne est éteinte ❌";
-        statusElement.style.color = "red"; // Couleur rouge si inactif
-      }
-    })
-    .catch(error => console.error("Erreur lors de la récupération du statut :", error));
-}
-
-// Rafraîchir le statut toutes les 5 secondes
-setInterval(fetchEsp32Status, 5000);
-
-// Lancer la récupération au chargement de la page
-document.addEventListener("DOMContentLoaded", fetchEsp32Status);
-</script>
-
-		
-	</body>
-</html>
+	
